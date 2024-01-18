@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  react-app:
+    container_name: "react-docker"
+    image: "react-docker"
+    stdin_open: true
+    build: .
+
+    ports:
+      - "5173:5173"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - "./:/usr/src/app:delegated"
+      - "/usr/src/app/node_modules/"
